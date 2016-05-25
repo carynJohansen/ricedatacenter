@@ -1,0 +1,9 @@
+# ignore node modules
+node_modules
+
+# Data
+data
+
+# gzip vcf files
+*.vcf.gz
+*.vcf.gz.tbi
