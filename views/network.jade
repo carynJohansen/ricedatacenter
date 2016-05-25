@@ -1,0 +1,182 @@
+extends ./top.jade
+
+block content
+
+  .container
+    .jumbotron
+      h4 Query the regulatory interaction database
+
+  .container#seachInput.center-block
+    h4 Compose a query statement:
+    .container
+      .row
+        .col-md-8
+          | Select
+          select#select
+            option(value='' selected disabled) select one
+            option(value='interaction') interactions
+            option(value='list') a list
+          | for 
+          select#geneSelectInput
+            option(value='' selected disabled) select one
+            option(value='all_genes') all genes
+            option(value='specific_gene') a specific gene
+            option(value='gene_list' disabled) a list of genes
+          | that is/are
+          select#category
+            option(value='' selected disabled) select one
+            option(value='regulator') regulators (non-exclusive)
+            option(value='regulator_only' disabled) regulator (exclusive)
+            option(value='target') targets (non-exclusive)
+            option(value='target_only' disabled) target (exclusive)
+            option(value='either') either regulators or targets
+            option(value='both' disabled) both regulators and targets
+
+      input#specGeneInput(data-line='ajax', type='text', placeholder='gene locus...')
+
+    .container
+      br
+      button#createQuery Create Query
+    br
+    .container
+      .row
+        textarea#textQuery.form-control(data-link='ajax', rows='10')
+
+    .container
+      h4 Network Display Options:
+      .row#filterOptions
+        .darkBG.col-md-4
+          .panel.panel-default
+            .panel-heading
+              | Show network results with checked SNPEFF effects:
+            .panel-body
+              .checkbox
+                label
+                  input(type='checkbox', value='CDS', name='snpeff[]')
+                  | Coding sequence variant
+              .checkbox
+                label
+                  input(type='checkbox', value='START_GAINED', name='snpeff[]') 
+                  | Start gained
+              .checkbox
+                label
+                  input(type='checkbox', value='START_LOST', name='snpeff[]') 
+                  | Start lost
+              .checkbox
+                label
+                  input(type='checkbox', value='STOP_GAINED', name='snpeff[]')
+                  | Stop gained
+              .checkbox
+                label
+                  input(type='checkbox', value='STOP_LOST', name='snpeff[]')
+                  | Stop lost
+              .checkbox
+                label
+                  input(type='checkbox', value='FRAME_SHIFT', name='snpeff[]')
+                  | Frame shift variant
+              .checkbox
+                label
+                  input(type='checkbox', value='INTRON', name='snpeff[]')
+                  | Intron variant
+              .checkbox
+                label
+                  input(type='checkbox', value='EXON', name='snpeff[]')
+                  | Exon variant
+              .checkbox
+                label
+                  input(type='checkbox', value='NSC', name='snpeff[]')
+                  | Non-synonymous coding
+              .checkbox
+                label
+                  input(type='checkbox', value='DOWNSTREAM', name='snpeff[]')
+                  | Downstream gene variant
+              .checkbox
+                label
+                  input(type='checkbox', value='GENE', name='snpeff[]')
+                  | gene variant
+              .checkbox
+                label
+                  input(type='checkbox', value='NON_SYNONYMOUS_START', name='snpeff[]')
+                  | Missense variant
+              .checkbox
+                label
+                  input(type='checkbox', value='UPSTREAM', name='snpeff[]')
+                  | Upstream of gene variant
+              .checkbox
+                label
+                  input(type='checkbox', value='UTR_3_PRIME', name='snpeff[]')
+                  | 3' UTR variant
+              .checkbox
+                label
+                  input(type='checkbox', value='UTR_5_PRIME', name='snpeff[]')
+                  | 5' UTR variant
+              
+        .darkBG.col-md-4
+          .panel.panel-default
+            .panel-heading
+              | Cultivar Filter Options:
+            .panel-body
+              .checkbox
+                label
+                  input(type='checkbox', value='japonica', name='landrace[]')
+                  | Japinoca
+              .checkbox
+                label
+                  input(type='checkbox', value='tropical_japonica', name='landrace[]')
+                  | Tropical Japinoca
+              .checkbox
+                label
+                  input(type='checkbox', value='indica', name='landrace[]')
+                  | Indica
+              .checkbox
+                label
+                  input(type='checkbox', value='aus', name='landrace[]')
+                  | Aus
+        .darkerBG.col-md-4
+          .panel.panel-default
+            .panel-heading
+              | Select PROVEAN filter options
+            .panel-body
+              .checkbox
+                label
+                  input(type='checkbox', name='prov', value='delMut')
+                  | Deleterious mutations
+  .container
+    .row
+      .darkBG.col-md-4
+        .panel.panel-default
+          .panel-heading
+            | Select Network layout:
+          .panel-body
+            select#layout
+              option(value='cose') CoSE Network (default)
+              option(value='circle') Circle (directed)
+              option(value='grid') Grid (directed)
+              option(value='concentricCircle') Concentric Circle
+
+  .container
+    button#queryClick QUERY
+  br
+
+  .container#spinWheel
+    span.Centerer
+    img.Centered(src='/images/ajax-loader.gif', alt='')
+
+  .container
+    .col-md-12#summary
+  br
+  
+  .container
+    .col-md-12#cy
+
+  .container#testResults
+
+
+  script(src="js/underscore-min.js")
+  script(src="js/bootstrap.min.js")
+  script(src="http://code.jquery.com/jquery-2.0.3.min.js")
+  script(src="js/jquery.tabletoCSV.js")
+  script(src="https://cdn.plot.ly/plotly-latest.min.js")
+  script(src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js")
+  script(src="js/cytoscape-cose-bilkent.js")
+  script(src="javascripts/network.js")

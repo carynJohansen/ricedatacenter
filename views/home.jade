@@ -1,0 +1,17 @@
+extends ./top.jade
+
+block content
+  .jumbotron
+    .container
+      h2 Welcome to the 
+      h1.text-center Oryza Data Center
+  #main.container
+    h4 To search for a specific gene, select Gene Search. To search in the regulatory interaction network, select Interaction Network Search.
+    br
+    .row
+      .darkBG.col-md-6
+        a.btn.btn-primary.center-block(href='/genesearch', role='button') Gene Search
+      .darkBG.col-md-6
+        a.btn.btn-primary.center-block(href='/network', role='button') Interaction Network Search
+
+  script(src='javascripts/main.js')

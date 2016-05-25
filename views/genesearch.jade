@@ -1,0 +1,104 @@
+extends ./top.jade
+
+block content
+
+  .container
+    .jumbotron#searchbox
+      .container
+        .col-lg-6
+          h4 Search for a Gene
+          .input-group
+            input#geneIn(data-link='ajax', placeholder='Search for...')
+          button#geneClick Go!
+
+  .container#searchresults
+    .jumbotron
+      h4#gene Search results for: 
+
+    .container
+      .row
+        .col-md-6
+          h4 MSU Annotation Info
+          ul#annotation.list-group
+        .col-md-6
+          h4 Links
+          ul#links.list-group
+      
+    .container
+      h4 Predicted Deleterious Mutations (PROVEAN results):
+      .col-lg-8
+        table.table
+          thead
+            tr
+              th Provean Mutations
+              th Provean Scores
+          tbody#proveanInfo
+
+    .container-fluid
+      .row
+        .col-md-4#downloadAll
+          .btn-group(rolw='group', aria-label='...')
+            button.btn.btn-warning(type='button') Create VCF for this region
+        .col-md-4#vcfcont
+          a#vcfDwnld(href='http://localhost:5000/python/tmp/region.vcf', target='_newtab') Download VCF
+        
+    br
+    .container
+      h4 Select result display and sort options 
+        select#sort_category
+          option(value='') Select category
+          option(value='no_sort') no sort
+          option(value='sample') by sample
+          option(value='position') by position
+          option(value='feature') by feature
+          option(value='SNPEFF_effect') by SNPEFF effect
+          option(value='genotype') by genotype
+
+    br
+    .container#sample
+      ul.nav.nav-tabs
+        li.dropdown
+          a#sampleDrop.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Select Sample
+            b.caret
+          ul#sampleTabs.dropdown-menu(role='menu', aria-labelledby='sampleDrop')
+      #sampleContent.tab-content
+
+    .container#position
+      ul.nav.nav-tabs
+        li.dropdown
+          a#positionDrop.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Select Position
+            b.caret
+          ul#positionTabs.dropdown-menu(role='menu', aria-labelledby='positionDrop')
+      #positionContent.tab-content
+
+    .container#SNPEFF_effect
+      ul.nav.nav-tabs
+        li.dropdown
+          a#effectDrop.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Select SNPEFF effect
+            b.caret
+          ul#effectTabs.dropdown-menu(role='menu', aria-labelledby='effectDrop')
+      #effectContent.tab-content
+
+    .container#hide
+      h4 here are the loop outputs
+      table.table
+        thead.thead-default
+          tr
+            th Chromosome
+            th Sample
+            th Position
+            th Reference
+            th Alt
+            th Genotype
+            th SNPEFF Effect
+            th Gene Feature
+        tbody#VCFinfo
+
+    script(src="js/underscore-min.js")
+    script(src="js/bootstrap.min.js")
+    script(src="http://code.jquery.com/jquery-2.0.3.min.js")
+    script(src="js/jquery.tabletoCSV.js")
+    script(src="javascripts/genesearch.js")
