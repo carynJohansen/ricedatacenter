@@ -59,14 +59,16 @@ $(function () {
 				//console.log(feature)
 				//console.log(effects)
 				$('#sort_category').on('change', function() {
+					//for each sort option, create a dropdown menu of all choices and a table for the results of that sort choice.
 					if (this.value == 'sample') {
 						$('#position').hide()
 						$('#SNPEFF_effect').hide()
+						//if it's already been loaded, toggle to it. This is must faster
 						if($('#sample').hasClass("loaded")) {
 							$('#sample').toggle()
 						} else {
 							$(samples).each(function (index, item) {
-								//console.log(item)
+								//for each sample in the VCF, add it to the dropdown
 								filteredJSON = dataParsed.filter(function (x, i) {
 									return x.sample == item
 								})//close json filter
@@ -76,7 +78,6 @@ $(function () {
 								$('#sampleContent').append(panel)
 								var dwnloadbutton = '<br><button id="' + item + 'Download" type="button" class="btn btn-success">Download result table</button><br>'
 								$('#' + item).append(dwnloadbutton)
-
 								var tablehead = '<table class="table" id="' + item + 'Results"><tr><th>Chromosome</th><th>Sample</th><th>Position</th><th>Reference</th><th>Alt</th><th>Genotype</th><th>SNPEFF Effect</th></tr></thead><tbody id="tbody' + item +'">'
 								$('#' + item).append(tablehead)
 								$(filteredJSON).each(function (i, elem) {
@@ -131,6 +132,8 @@ $(function () {
 								$('#' + item).append(dwnloadbutton)
 								var tablehead = '<table class="table" id="' + item + 'Results"><tr><th>Chromosome</th><th>Sample</th><th>Position</th><th>Reference</th><th>Alt</th><th>Genotype</th><th>SNPEFF Effect</th></tr></thead><tbody id="tbody' + item +'">'
 								$('#' + item).append(tablehead)
+								//you should try to create this on the select of the dropdown, using the sample name selected. That'd be faster, 
+								//lower computational load, and would fix the weird bug.
 								$(filteredJSON).each(function (i, elem) {
 									////console.log("here is the length element of the filtered JSON:", elem.length)
 									//$('#jsontest').append('<p>' + elem + '</p>')

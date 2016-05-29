@@ -2,11 +2,11 @@
 
 pyvcf = '/Users/caryn/Dropbox/Project_RiceGeneticVariation/database/vcf'
 
-VCF='/Users/caryn/Dropbox/Project_OryzaDataCenter/bwa_msdr_MRE_F.vcf.gz'
+VCF='/Users/caryn/Dropbox/Project_OryzaDataCenter/data/bwa_msdr_MRE_F.vcf.gz'
 
-DATABASE='/Users/caryn/Dropbox/Project_OryzaDataCenter/michael_04042016.db'
+DATABASE='/Users/caryn/Dropbox/Project_OryzaDataCenter/data/michael_04042016.db'
 
-PROVEAN = '/Users/caryn/Dropbox/Project_OryzaDataCenter/simple_genes/data/Ines_provean_assemble.out'
+PROVEAN = '/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Ines_provean_assemble.out'
 
 # dictionary for interpreting chromosome
 
