@@ -1,0 +1,39 @@
+{
+  "name": "ocd",
+  "version": "1.0.0",
+  "description": "interaction network using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirrormere/TFNode.git"
+  },
+  "keywords": [
+    "interaction",
+    "tf",
+    "network"
+  ],
+  "author": "caryn",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.1",
+    "fs": "0.0.2",
+    "globule": "^0.2.0",
+    "http": "0.0.0",
+    "jade": "^1.11.0",
+    "json2csv": "^3.2.0",
+    "path": "^0.12.7",
+    "request": "^2.69.0",
+    "sqlite3": "^3.0.9",
+    "stylus": "^0.52.0",
+    "underscore": "^1.8.3",
+    "util": "^0.10.3"
+  },
+  "bugs": {
+    "url": "https://github.com/mirrormere/TFNode/issues"
+  },
+  "homepage": "https://github.com/mirrormere/TFNode#readme"
+}
