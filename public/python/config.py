@@ -2,11 +2,11 @@
 
 pyvcf = '/Users/caryn/Dropbox/Project_RiceGeneticVariation/database/vcf'
 
-VCF='/Users/caryn/Dropbox/Project_OryzaDataCenter/bwa_msdr_MRE_F.vcf.gz'
+VCF='/Users/caryn/Dropbox/Project_OryzaDataCenter/data/bwa_msdr_MRE_F.vcf.gz'
 
-DATABASE='/Users/caryn/Dropbox/Project_OryzaDataCenter/michael_04042016.db'
+DATABASE='/Users/caryn/Dropbox/Project_OryzaDataCenter/data/michael_04042016.db'
 
-PROVEAN = '/Users/caryn/Dropbox/Project_OryzaDataCenter/simple_genes/data/Ines_provean_assemble.out'
+PROVEAN = '/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Ines_provean_assemble.out'
 
 # dictionary for interpreting chromosome
 
@@ -56,18 +56,18 @@ CHROM_INFO_PATH = {
 }
 
 GFF_PATH = {
-	"01" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr1.dir/Chr1.gff3",
-	"02" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr2.dir/Chr2.gff3",
-	"03" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr3.dir/Chr3.gff3",
-	"04" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr4.dir/Chr4.gff3",
-	"05" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr5.dir/Chr5.gff3",
-	"06" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr6.dir/Chr6.gff3",
-	"07" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr7.dir/Chr7.gff3",
-	"08" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr8.dir/Chr8.gff3",
-	"09" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr9.dir/Chr9.gff3",
-	"10" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr10.dir/Chr10.gff3",
-	"11" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr11.dir/Chr11.gff3",
-	"12" : "/Users/caryn/Dropbox/Project_jsLearn/simple_genes/data/Chr12.dir/Chr12.gff3"
+	"01" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr1.dir/Chr1.gff3",
+	"02" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr2.dir/Chr2.gff3",
+	"03" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr3.dir/Chr3.gff3",
+	"04" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr4.dir/Chr4.gff3",
+	"05" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr5.dir/Chr5.gff3",
+	"06" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr6.dir/Chr6.gff3",
+	"07" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr7.dir/Chr7.gff3",
+	"08" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr8.dir/Chr8.gff3",
+	"09" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr9.dir/Chr9.gff3",
+	"10" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr10.dir/Chr10.gff3",
+	"11" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr11.dir/Chr11.gff3",
+	"12" : "/Users/caryn/Dropbox/Project_OryzaDataCenter/data/Chr12.dir/Chr12.gff3"
 }
 
 # Rice Data
