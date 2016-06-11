@@ -63,62 +63,52 @@ $(function () {
 				//console.log(effects)
 				$('#sort_category').on('change', function() {
 					if (this.value == 'sample') {
-						$('#position').hide()
+						$('#sample').hide()
 						$('#SNPEFF_effect').hide()
 						if($('#sample').hasClass("loaded")) {
 							$('#sample').toggle()
 						} else {
-							//create a drop down menu for each of the samples
 							$(samples).each(function (index, item) {
-								//console.log(item)
-								var drops = '<option value="' + item + '">' + item + '</option>'
-								$('#sampleDrop').append(drops)
-							})
-							// create the results panel for the selected sampel from the drop down
-							$('#sampleDrop').on('change', function() {
-								var sample = this.value
-								console.log("SAMPLE: " + sample)
-								filteredJSON = dataParsed.filter(function (x, i) {
-									return x.sample == sample
-								})//close json filter
-								var panel = '<div class="tab-panel fade" id="' + sample + '">'
+								//console.log("I am in sample, here is item", item)
+								var filteredJSON = dataParsed.filter(function (n, i) {
+									return n.sample == item;
+								})
+								//console.log("length of filtered JSON:", filteredJSON.length)
+								var tabs = '<li><a href="#' + item +'" data-toggle="tab">' + item + '</a></li>'
+								$('#sampleTabs').append(tabs)
+								////console.log($('#sampleTab'))
+								var panel = '<div class="tab-pane fade" id="' + item + '">'
 								$('#sampleContent').append(panel)
-								var dwnloadbutton = '<br><button id="' + sample + 'Download" type="button" class="btn btn-success">Download result table</button><br>'
-								$('#' + sample).append(dwnloadbutton)
-								// Create the results table for the sample selected from the dropdown
-								var tablehead = '<table class="table" id="' + sample + 'Results"><tr><th>Chromosome</th><th>Sample</th><th>Position</th><th>Reference</th><th>Alt</th><th>Genotype</th><th>SNPEFF Effect</th></tr></thead><tbody id="tbody' + sample +'">'
-								$('#' + sample).append(tablehead)
+								var dwnloadbutton = '<br><button id="' + item + 'Download" type="button" class="btn btn-success">Download result table</button><br>'
+								$('#' + item).append(dwnloadbutton)
+								var tablehead = '<table class="table" id="' + item + 'Results"><tr><th>Chromosome</th><th>Sample</th><th>Position</th><th>Reference</th><th>Alt</th><th>Genotype</th><th>SNPEFF Effect</th></tr></thead><tbody id="tbody' + item +'">'
+								$('#' + item).append(tablehead)
 								$(filteredJSON).each(function (i, elem) {
-									//console.log("making the table")
-									//console.log(elem.gene_feature_location)
+									////console.log("here is the length element of the filtered JSON:", elem.length)
+									//$('#jsontest').append('<p>' + elem + '</p>')
 									if( elem.genotype == '1/1' || elem.genotype == '0/1' || elem.genotype == '1/0') {
 										var rw = '<tr class="has_alt">'
 									} else {
 										var rw = '<tr>'
 									}
 									rw += '<td>' + elem.chromosome + '</td>'
-									rw += '<td>' + elem.variety + '</td>'
+									rw += '<td>' + elem.sample + '</td>'
 									rw += '<td>' + elem.position + '</td>'
 									rw += '<td>' + elem.reference + '</td>'
 									rw += '<td>' + elem.alternate + '</td>'
 									rw += '<td>' + elem.genotype + '</td>'
 									rw += '<td>'+ elem.SNPEFF_effect + '</td>'
 									rw += '</tr>'
-									$('#tbody'+sample).append(rw);
-								}) // close dataParsed.each function
-								$('#' + sample + 'Download').on("click", function() {
+									$('#tbody' + item).append(rw)
+								}) // close json each function
+								$('#' + item + 'Download').on("click", function() {
 									console.log("you want to download the results!")
-									$('#' + sample + 'Results').tableToCSV()
+									$('#' + item + 'Results').tableToCSV()
 								})
-							}) // close sample.each()
-							$('.btn.btn-default').on('shown.bs.tab', 'a', function (e) {
-	        					if (e.relatedTarget) {
-	          					$(e.relatedTarget).removeClass('active');
-	        					}
-	      					}) //close remove dropdown active
+							}) //close dataParsed each
 							$('#sample').addClass("loaded").show()
 						} // close else
-					} // close if sample
+					} //close if sample
 					if (this.value == 'position') {
 						$('#sample').hide()
 						$('#SNPEFF_effect').hide()

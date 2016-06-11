@@ -55,9 +55,14 @@ block content
 
     br
     .container#sample
-      select#sampleDrop
-        option(value='') Select Sample
-      #sampleContent
+      ul.nav.nav-tabs
+        li.dropdown
+          a#sampleDrop.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Select Sample
+            b.caret
+          ul#sampleTabs.dropdown-menu(role='menu', aria-labelledby='sampleDrop')
+      #sampleContent.tab-content
+
 
     .container#position
       ul.nav.nav-tabs
