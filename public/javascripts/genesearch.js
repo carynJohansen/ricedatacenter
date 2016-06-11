@@ -71,15 +71,6 @@ $(function () {
 							$('#sample').toggle()
 						} else {
 							$(samples).each(function (index, item) {
-<<<<<<< HEAD
-								//for each sample in the VCF, add it to the dropdown
-								filteredJSON = dataParsed.filter(function (x, i) {
-									return x.sample == item
-								})//close json filter
-								var drops = '<li><a href="#' + item + '" data-toggle="tab">' + item + '</a></li>'
-								$('#sampleTabs').append(drops)
-								var panel = '<div class="tab-panel fade" id="' + item + '">'
-=======
 								//console.log("I am in sample, here is item", item)
 								var filteredJSON = dataParsed.filter(function (n, i) {
 									return n.sample == item;
@@ -89,7 +80,6 @@ $(function () {
 								$('#sampleTabs').append(tabs)
 								////console.log($('#sampleTab'))
 								var panel = '<div class="tab-pane fade" id="' + item + '">'
->>>>>>> issue_sampleBug
 								$('#sampleContent').append(panel)
 								var dwnloadbutton = '<br><button id="' + item + 'Download" type="button" class="btn btn-success">Download result table</button><br>'
 								$('#' + item).append(dwnloadbutton)
