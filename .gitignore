@@ -8,3 +8,6 @@ data
 # gzip vcf files
 *.vcf.gz
 *.vcf.gz.tbi
+
+# Python
+*.pyc
