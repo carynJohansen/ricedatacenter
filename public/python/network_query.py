@@ -14,7 +14,8 @@ import ast
 import config
 
 #import vcf module
-sys.path.append('/Users/caryn/Dropbox/Project_RiceGeneticVariation/database')
+#IS THIS BREAKING? What is this doing on the server?
+sys.path.append('/Users/caryn/Dropbox/Project_OryzaDataCenter/public/python')
 import vcf
 
 #to time the program:
