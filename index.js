@@ -18,8 +18,8 @@ var json2csv = require('json2csv')
 var fs = require('fs')
 
 //Database connection
-var sqlite3 = require('sqlite3').verbose()
-var db = new sqlite3.Database('/Users/caryn/Dropbox/Project_jsLearn/simple_genes/michael.db')
+//var sqlite3 = require('sqlite3').verbose()
+//var db = new sqlite3.Database('/Users/caryn/Dropbox/Project_jsLearn/simple_genes/michael.db')
 
 //port
 app.set('port', (process.env.PORT || 5000))
